@@ -1,5 +1,10 @@
-OOAD MINI PROJECT 
-BANK MANAGEMENT SYSTEM 
+# BANK MANAGEMENT SYSTEM #
 
-A bank management application which creats a new user, holds records of the accounts, Updates to a loan user, and deletes the user if action is performed.
+A bank management application 
+
+- [X] Creates a new user
+- [X] Holds records of the accounts
+- [X] Updates to a loan user
+- [X] Deletes the user if action is performed.
+  
 Used Springboot(MVC framework),MySQL and design patterns.
