@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import net.javaguides.bankmanagementsystem.entity.Transaction;
 import net.javaguides.bankmanagementsystem.entity.User;
 import net.javaguides.bankmanagementsystem.repository.Userrepository;
 
@@ -19,6 +20,7 @@ public class BankManagementSystemApplication implements CommandLineRunner {
     public BankManagementSystemApplication() {
         // Private constructor to prevent instantiation from outside
     }
+    
     // SINGLETON DESIGN PATTERN USED 
     public static synchronized BankManagementSystemApplication getInstance() {
         if (instance == null) {
@@ -45,5 +47,7 @@ public class BankManagementSystemApplication implements CommandLineRunner {
 
         User user3 = new User("Sanath", "Kumar_463", "san@gmail.com");
         userRepository.save(user3);
+
+        // Transaction t1 = new Transaction("1","deposit","5000",)
     }
 }

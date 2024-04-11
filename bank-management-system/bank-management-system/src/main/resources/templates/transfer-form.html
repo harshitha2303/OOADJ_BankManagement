@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer</title>
+    <!-- Include any necessary CSS or JavaScript files -->
+</head>
+<body>
+    <h1>Transfer</h1>
+    <form th:action="@{/transactions/transfer}" method="post">
+        <div>
+            <label for="fromAccountID">From Account ID:</label>
+            <input type="text" id="fromAccountID" name="fromAccountID" required>
+        </div>
+        <div>
+            <label for="toAccountID">To Account ID:</label>
+            <input type="text" id="toAccountID" name="toAccountID" required>
+        </div>
+        <div>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+        </div>
+        <button type="submit">Transfer</button>
+    </form>
+</body>
+</html>
