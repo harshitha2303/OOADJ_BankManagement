@@ -3,6 +3,7 @@ package net.javaguides.bankmanagementsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import net.javaguides.bankmanagementsystem.dto.UserRegistrationDto;
 import net.javaguides.bankmanagementsystem.entity.User;
 import net.javaguides.bankmanagementsystem.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
@@ -95,6 +97,37 @@ public class UserController {
 
 
     }
+    @Controller
+    @RequestMapping("/registration")
+    public class UserRegistrationController{
+        private UserService userService;
+
+        public UserRegistrationController(net.javaguides.bankmanagementsystem.service.UserService userService) {
+            this.userService = userService;
+        }
+        @ModelAttribute("user")
+        public UserRegistrationDto userRegistrationDto(){
+            return new UserRegistrationDto();
+
+        }
+        @GetMapping
+        public String showRegistrationForm(){
+            return "registration";
+        }
+
+        @PostMapping
+
+        public String registrationUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto)
+        {
+            userService.save(registrationDto);
+            return "redirect:/users";
+        }
+
+
+    }
+
+
+    
 
 
 
